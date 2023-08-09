@@ -1,9 +1,14 @@
 <%= render partial: "shared/nav" %>
 
 <body>
-  <div class="row column-header">
-    <p class='col-12'>My Discounts</p>
-  </div>
+
+
+  <h4>Upcoming Holidays</h4>
+  <ul>
+    <% @holidays.each do |holiday| %>
+      <li><%= holiday["name"] %> - <%= string_to_date(holiday["date"]) %></li>
+    <% end %>
+  </ul>
 
   <h3>Current Discounts:</h3>
   <%= link_to "Add New Discount", new_merchant_discount_path(@merchant) %>
